@@ -1,0 +1,22 @@
+2.
+select * from sailor s
+where (s.rating>=2 and s.rating<8) or 
+(s.rating>10 and s.rating<=11);
+
+3.
+select b.* 
+from sailor s, reserves r, boat b
+where s.sid=r.sid and r.bid=b.bid and 
+b.color<>'red' and s.rating>7;
+
+
+4.
+select b.bid,b.bname from boat b where b.bid in
+(select distinct r.bid
+from reserves r 
+where r.day in ('Saturday','Sunday'))
+and b.bid not in
+(select distinct r.bid
+from reserves r 
+where r.day in ('Tuesday'));
+

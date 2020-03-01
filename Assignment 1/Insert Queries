@@ -1,0 +1,29 @@
+INSERT INTO sailor VALUES(22,   'Dustin',       7)
+, (29,   'Brutus',       1)
+, (31,   'Lubber',       8)
+, (32,   'Andy',         8)
+, (58,   'Rusty',        10)
+, (64,   'Horatio',      7)
+, (71,   'Zorba',        10)
+, (75,   'David',        8)
+, (74,   'Horatio',      9)
+, (85,   'Art',          3)
+, (95,   'Bob',          3);
+
+INSERT INTO boat VALUES(101,	'Interlake',	'blue')
+,(102,	'Sunset',	'red')
+,(103,	'Clipper',	'green')
+,(104,	'Marine',	'red')
+,(105,    'Indianapolis',     'blue');
+
+
+INSERT INTO reserves VALUES(22,	101,	'Monday')
+,(22,	102,	'Tuesday')
+,(22,	103,	'Wednesday')
+,(22,	105,	'Wednesday')
+,(31,	102,	'Thursday')
+,(31,	103,	'Friday')
+,(31, 104,	'Saturday')
+,(64,	101,	'Sunday')
+,(64,	102,	'Monday')
+,(74,	102,	'Saturday');

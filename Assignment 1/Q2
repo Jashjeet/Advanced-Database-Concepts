@@ -1,0 +1,71 @@
+1.
+select s.sid,s.rating from sailor s;
+
+
+2.
+select * from sailor s
+where (s.rating>=2 and s.rating<8) or 
+(s.rating>10 and s.rating<=11);
+
+3.
+select distinct b.* 
+from sailor s, reserves r, boat b
+where s.sid=r.sid and r.bid=b.bid and 
+b.color<>'red' and s.rating>7;
+
+
+4.
+select b.bid,b.bname from boat b where b.bid in
+(select distinct r.bid
+from reserves r 
+where r.day in ('Saturday','Sunday'))
+and b.bid not in
+(select distinct r.bid
+from reserves r 
+where r.day in ('Tuesday'));
+
+
+5.
+select distinct r.sid from reserves r, boat b
+where r.bid=b.bid and b.color = 'red'
+and r.sid in
+(select r1.sid from reserves r1, boat b1
+where r1.bid=b1.bid and b1.color = 'green');
+
+
+6.
+select distinct s.sid, s.sname from reserves r1, reserves r2, sailor s
+where r1.sid=r2.sid and r1.bid<>r2.bid and r1.sid=s.sid;
+
+
+7.
+select distinct r1.sid,r2.sid from reserves r1, reserves r2
+where r1.sid<>r2.sid and r1.bid=r2.bid;
+
+
+8.
+select distinct s.sid from sailor s
+where s.sid not in
+(select r.sid from reserves r
+where r.day in ('Monday','Tuesday'));
+
+
+9.
+select r.sid,b.bid from reserves r, sailor s, boat b
+where s.sid=r.sid and b.bid=r.bid
+and s.rating>6 and b.color<>'red';
+
+
+10.
+select b.bid from boat b
+where b.bid not in
+(select r1.bid from reserves r1, reserves r2
+where r1.bid=r2.bid and r1.sid<>r2.sid);
+
+
+11.
+select s.sid from sailor s
+where s.sid not in 
+(select r1.sid from reserves r1, reserves r2, reserves r3
+where r1.sid=r2.sid and r1.sid=r3.sid
+and r1.bid<>r2.bid and r1.bid<>r3.bid and r2.bid<>r3.bid);

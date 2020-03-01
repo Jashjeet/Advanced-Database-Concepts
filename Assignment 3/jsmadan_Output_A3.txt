@@ -1,0 +1,508 @@
+postgres=# \i C:/Users/jashj/OneDrive/'Semester 2'/'Advanced Database Concepts'/'Assignment 3'/'jsmadan_Assignment_3.sql'
+CREATE DATABASE
+You are now connected to database "assignment3jashjeet" as user "postgres".
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 18
+INSERT 0 14
+INSERT 0 74
+INSERT 0 10
+INSERT 0 19
+INSERT 0 1
+INSERT 0 2
+INSERT 0 3
+INSERT 0 37
+Question 1
+CREATE TABLE
+CREATE TABLE
+INSERT 0 3
+INSERT 0 2
+Part (a)
+ empty_a_minus_b | empty_b_minus_a | empty_a_intersection_b
+-----------------+-----------------+------------------------
+ f               | t               | f
+(1 row)
+
+
+Part (b)
+ empty_a_minus_b | empty_b_minus_a | empty_a_intersection_b
+-----------------+-----------------+------------------------
+ f               | t               | f
+(1 row)
+
+
+DROP TABLE
+DROP TABLE
+Question 2
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 3
+INSERT 0 3
+INSERT 0 3
+ p | q | r | value
+---+---+---+-------
+ t | t | t | f
+ t | t | f | t
+ t | t |   |
+ t | f | t | t
+ t | f | f | t
+ t | f |   | t
+ t |   | t |
+ t |   | f | t
+ t |   |   |
+ f | t | t | f
+ f | t | f | t
+ f | t |   |
+ f | f | t | f
+ f | f | f | t
+ f | f |   |
+ f |   | t | f
+ f |   | f | t
+ f |   |   |
+   | t | t | f
+   | t | f | t
+   | t |   |
+   | f | t |
+   | f | f | t
+   | f |   |
+   |   | t |
+   |   | f | t
+   |   |   |
+(27 rows)
+
+
+DROP TABLE
+DROP TABLE
+DROP TABLE
+Question 3
+CREATE TABLE
+INSERT 0 3
+INSERT 0 3
+Part (a)
+ p | p
+---+---
+ 1 | 2
+ 1 | 3
+ 2 | 1
+ 2 | 5
+ 3 | 1
+ 3 | 6
+ 4 | 5
+ 4 | 6
+ 5 | 2
+ 6 | 3
+(10 rows)
+
+
+Part (b)
+ p | p | p
+---+---+---
+ 1 | 2 | 5
+ 1 | 3 | 6
+ 1 | 5 | 2
+ 1 | 6 | 3
+ 2 | 1 | 5
+ 2 | 5 | 1
+ 3 | 1 | 6
+ 3 | 6 | 1
+ 5 | 1 | 2
+ 5 | 2 | 1
+ 6 | 1 | 3
+ 6 | 3 | 1
+(12 rows)
+
+
+DROP TABLE
+Question 4
+CREATE TABLE
+INSERT 0 6
+Part (a)
+ a_primary_key
+---------------
+ t
+(1 row)
+
+
+Part (b)
+Printing table R to verify
+ a | b | c
+---+---+---
+ 1 | 0 | 0
+ 2 | 0 | 1
+ 3 | 1 | 0
+ 4 | 0 | 0
+ 5 | 0 | 1
+ 6 | 1 | 0
+(6 rows)
+
+
+Instance of R which has A as primary key
+ a_primary_key
+---------------
+ t
+(1 row)
+
+
+INSERT 0 2
+Printing table R to verify
+ a | b | c
+---+---+---
+ 1 | 0 | 0
+ 2 | 0 | 1
+ 3 | 1 | 0
+ 4 | 0 | 0
+ 5 | 0 | 1
+ 6 | 1 | 0
+ 1 | 0 | 0
+   | 0 | 1
+(8 rows)
+
+
+Instance of R which does not have A as primary key
+ a_primary_key
+---------------
+ f
+(1 row)
+
+
+DROP TABLE
+Question 5
+CREATE TABLE
+INSERT 0 9
+ row | colmn | value
+-----+-------+-------
+   1 |     1 |   125
+   1 |     2 |   -48
+   1 |     3 |   305
+   2 |     1 |   556
+   2 |     2 |  -127
+   2 |     3 |  -468
+   3 |     1 |    20
+   3 |     2 |   232
+   3 |     3 |    52
+(9 rows)
+
+
+DROP TABLE
+Question 6
+CREATE TABLE
+INSERT 0 9
+ remainder_value | mod4_group_count
+-----------------+------------------
+               3 |                1
+               0 |                2
+               2 |                4
+               1 |                2
+(4 rows)
+
+
+DROP TABLE
+Question 7
+CREATE TABLE
+INSERT 0 12
+ x
+----
+ 30
+  3
+  5
+  4
+ 10
+  6
+  2
+ 20
+  1
+(9 rows)
+
+
+DROP TABLE
+Question 8 (a)
+ bookno |        title
+--------+---------------------
+   2010 | Philosophy
+   2003 | Networks
+   4001 | LinearAlgebra
+   2005 | DiscreteMathematics
+   2009 | Calculus
+(5 rows)
+
+
+Question 8 (b)
+ sid  | sname | numberofbooksbought
+------+-------+---------------------
+ 1005 | John  |                   4
+ 1008 | Emma  |                   4
+ 1011 | Nick  |                   4
+ 1012 | Eric  |                   2
+ 1013 | Lisa  |                   3
+ 1014 | Filip |                   3
+ 1020 | Ahmed |                   1
+(7 rows)
+
+
+Question 8 (c)
+ sid  | sname
+------+-------
+ 1015 | Dirk
+(1 row)
+
+
+Question 8 (d)
+    major     | totalpriceofbooksbought
+--------------+-------------------------
+ Math         |                    1345
+ Theater      |                     180
+ Physics      |                     750
+ Anthropology |                     215
+ CS           |                    2080
+ Psychology   |                     170
+ Biology      |                     480
+(7 rows)
+
+
+Question 8 (e)
+  b1  |  b2
+------+------
+ 2008 | 2001
+ 2008 | 2002
+ 2008 | 2013
+ 4003 | 2006
+ 2009 | 2010
+ 2009 | 2003
+ 2005 | 4002
+ 2005 | 2004
+ 2005 | 4001
+ 2013 | 2001
+ 2013 | 2002
+ 2013 | 2008
+ 2003 | 2010
+ 2003 | 2009
+ 4001 | 4002
+ 4001 | 2004
+ 4001 | 2005
+ 2002 | 2001
+ 2002 | 2013
+ 2002 | 2008
+ 2004 | 4002
+ 2004 | 4001
+ 2004 | 2005
+ 2010 | 2003
+ 2010 | 2009
+ 2006 | 4003
+ 4002 | 2004
+ 4002 | 4001
+ 4002 | 2005
+ 2001 | 2002
+ 2001 | 2013
+ 2001 | 2008
+(32 rows)
+
+
+Question 9
+CREATE VIEW
+CREATE FUNCTION
+ sid  |   sname
+------+-----------
+ 1001 | Jean
+ 1002 | Maria
+ 1003 | Anna
+ 1004 | Chin
+ 1005 | John
+ 1006 | Ryan
+ 1007 | Catherine
+ 1008 | Emma
+ 1009 | Jan
+ 1010 | Linda
+ 1011 | Nick
+ 1012 | Eric
+ 1013 | Lisa
+ 1014 | Filip
+ 1017 | Ellen
+ 1020 | Ahmed
+ 1021 | Kris
+(17 rows)
+
+
+DROP VIEW
+DROP FUNCTION
+Question 10
+CREATE FUNCTION
+CREATE VIEW
+ bookno |        title
+--------+----------------------
+   2001 | Databases
+   2002 | OperatingSystems
+   2003 | Networks
+   2004 | AI
+   2007 | ProgrammingLanguages
+   2008 | DataScience
+   2012 | Geometry
+   2013 | RealAnalysis
+   2011 | Anthropology
+   3000 | MachineLearning
+   4001 | LinearAlgebra
+   4002 | MeasureTheory
+   4003 | OptimizationTheory
+(13 rows)
+
+
+DROP FUNCTION
+DROP VIEW
+Question 11
+CREATE FUNCTION
+CREATE VIEW
+ sid  | sname
+------+-------
+ 1002 | Maria
+ 1003 | Anna
+ 1004 | Chin
+ 1005 | John
+ 1006 | Ryan
+ 1008 | Emma
+ 1009 | Jan
+ 1010 | Linda
+ 1011 | Nick
+ 1012 | Eric
+ 1013 | Lisa
+ 1014 | Filip
+ 1015 | Dirk
+ 1016 | Mary
+ 1017 | Ellen
+ 1020 | Ahmed
+(16 rows)
+
+
+DROP FUNCTION
+DROP VIEW
+Question 12
+CREATE FUNCTION
+ bookno | bookno
+--------+--------
+   2010 |   2003
+   2005 |   4002
+   2009 |   2010
+   2004 |   2005
+   2004 |   4001
+   4002 |   2005
+   4001 |   2005
+   2003 |   2009
+   4002 |   2004
+   2010 |   2009
+   2005 |   4001
+   2005 |   2004
+   4001 |   4002
+   2004 |   4002
+   2003 |   2010
+   4002 |   4001
+   2009 |   2003
+   4001 |   2004
+(18 rows)
+
+
+DROP FUNCTION
+Question 13
+CREATE FUNCTION
+CREATE VIEW
+ sid  | sname
+------+-------
+ 1004 | Chin
+ 1006 | Ryan
+ 1011 | Nick
+ 1012 | Eric
+ 1013 | Lisa
+(5 rows)
+
+
+DROP FUNCTION
+DROP VIEW
+Question 14
+CREATE FUNCTION
+CREATE VIEW
+ bookno |        title
+--------+----------------------
+   2004 | AI
+   2005 | DiscreteMathematics
+   2006 | SQL
+   2007 | ProgrammingLanguages
+   2012 | Geometry
+   4001 | LinearAlgebra
+   4002 | MeasureTheory
+   4003 | OptimizationTheory
+(8 rows)
+
+
+DROP FUNCTION
+DROP VIEW
+Question 15
+CREATE VIEW
+CREATE FUNCTION
+ sid  | sname
+------+-------
+ 1021 | Kris
+(1 row)
+
+
+DROP VIEW
+DROP FUNCTION
+Question 16
+CREATE FUNCTION
+ bookno | bookno
+--------+--------
+   2013 |   2011
+   2010 |   2003
+   2005 |   2007
+   2010 |   2001
+   2005 |   4002
+   2005 |   2011
+   4002 |   2001
+   4001 |   2002
+   2010 |   2002
+   2005 |   2001
+   4002 |   2004
+   2010 |   2009
+   2010 |   2011
+   2005 |   2003
+   2005 |   4001
+   2005 |   2004
+   4002 |   2008
+   2005 |   2002
+   2005 |   2008
+   2009 |   2002
+   4001 |   4002
+   2004 |   2002
+   2005 |   2006
+   4001 |   2001
+   2003 |   2001
+   3000 |   2002
+   2010 |   2008
+   2006 |   2011
+   2006 |   2007
+   2004 |   2011
+   2005 |   2010
+   4002 |   2002
+   2005 |   2009
+   4002 |   4001
+   2006 |   2008
+   3000 |   2011
+   4001 |   2008
+   4003 |   2002
+   4001 |   2004
+   4002 |   2011
+   4001 |   2011
+   2003 |   2002
+   3000 |   2004
+   2005 |   4003
+   2010 |   2007
+   2009 |   2011
+   4003 |   2011
+   2007 |   2011
+   2009 |   2007
+(49 rows)
+
+
+DROP FUNCTION
+You are now connected to database "postgres" as user "postgres".
+DROP DATABASE

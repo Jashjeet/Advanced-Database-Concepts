@@ -1,0 +1,25 @@
+-- Creating database with my initials
+CREATE DATABASE jsm;
+
+--Connecting database 
+\c jsm; 
+
+--Table Creation Statements
+CREATE TABLE public.sailor
+(
+    sid integer NOT NULL,
+    sname text,
+    rating integer,
+    CONSTRAINT sailor_pk PRIMARY KEY (sid)
+);
+
+
+
+CREATE TABLE public.boat
+(
+    bid integer NOT NULL,
+    bname integer,
+    color text,
+    CONSTRAINT boat_pk PRIMARY KEY (bid)
+);
+

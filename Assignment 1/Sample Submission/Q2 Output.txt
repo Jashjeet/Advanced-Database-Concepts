@@ -1,0 +1,124 @@
+Question 2.1
+ sid | rating
+-----+--------
+  22 |      7
+  29 |      1
+  31 |      8
+  32 |      8
+  58 |     10
+  64 |      7
+  71 |     10
+  75 |      8
+  74 |      9
+  85 |      3
+  95 |      3
+(11 rows)
+
+
+Question 2.2
+ sid |  sname  | rating
+-----+---------+--------
+  22 | Dustin  |      7
+  64 | Horatio |      7
+  85 | Art     |      3
+  95 | Bob     |      3
+(4 rows)
+
+
+Question 2.3
+ bid |  bname  | color
+-----+---------+-------
+ 103 | Clipper | green
+(1 row)
+
+
+Question 2.4
+ bid |   bname
+-----+-----------
+ 101 | Interlake
+ 104 | Marine
+(2 rows)
+
+
+Question 2.5
+ sid
+-----
+  22
+  31
+(2 rows)
+
+
+Question 2.6
+ sid |  sname
+-----+---------
+  64 | Horatio
+  31 | Lubber
+  22 | Dustin
+(3 rows)
+
+
+Question 2.7
+ sid | sid
+-----+-----
+  64 |  74
+  64 |  22
+  74 |  22
+  22 |  74
+  74 |  64
+  64 |  31
+  31 |  74
+  22 |  64
+  22 |  31
+  31 |  64
+  31 |  22
+  74 |  31
+(12 rows)
+
+
+Question 2.8
+ sid
+-----
+  29
+  75
+  58
+  85
+  95
+  74
+  32
+  31
+  71
+(9 rows)
+
+
+Question 2.9
+ sid | bid
+-----+-----
+  22 | 101
+  22 | 103
+  22 | 105
+  31 | 103
+  64 | 101
+(5 rows)
+
+
+Question 2.10
+ bid
+-----
+ 104
+ 105
+(2 rows)
+
+
+Question 2.11
+ sid
+-----
+  29
+  32
+  58
+  64
+  71
+  75
+  74
+  85
+  95
+(9 rows)

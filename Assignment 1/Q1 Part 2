@@ -1,0 +1,40 @@
+--Error, violates referential integrity
+delete from sailor s where s.sid=74;
+--Successful, first delete from child table, and then from parent table
+delete from reserves r where r.sid=74;
+delete from sailor s where s.sid=74;
+
+--Error, violates unique constraint
+insert into boat values (101,	'Sample',	'white');
+--Successful, after changing the primary key value in insertion
+insert into boat values (108,	'Sample',	'white');
+
+--Error, violates foreign key constraint
+INSERT INTO reserves VALUES(25,	102,	'Monday');
+--Successful, after inserting into parent table (sailor) first, we can insert into child table (reserves)
+insert into sailor values (25,	'New',	100);
+INSERT INTO reserves VALUES(25,	102,	'Monday');
+
+--Error, violates foreign key constraint
+INSERT INTO reserves VALUES(25,	110,	'Monday');
+--Successful, after inserting into parent table (boat) first, we can insert into child table (reserves)
+insert into boat values (110,	'New Boat',	'Yellow');
+INSERT INTO reserves VALUES(25,	110,	'Monday');
+
+-Error, violates referential integrity (foreign key to parent table sailor)
+INSERT INTO reserves VALUES(44,	103,	'Monday');
+--Successful, after dropping the foreign key
+alter table reserves drop constraint sailor_sid_fk;
+INSERT INTO reserves VALUES(44,	103,	'Monday');
+
+--Error, insert or update on table "reserves" violates foreign key constraint "boat_bid_fk"
+INSERT INTO reserves VALUES(44,	115,	'Monday');
+--Successful, after dropping foreign key constraint "boat_bid_fk"
+alter table reserves drop constraint boat_bid_fk;
+INSERT INTO reserves VALUES(44,	115,	'Monday');
+
+--Error, duplicate key value violates unique constraint "sailor_pk"
+insert into sailor values (22,	'Jashjeet',	100);
+--Successful, after dropping primary key, duplicate insertion of sid is possible
+alter table sailor drop constraint sailor_pk;
+insert into sailor values (22,	'Jashjeet',	100);

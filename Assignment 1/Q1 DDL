@@ -1,0 +1,38 @@
+CREATE DATABASE assignment1;
+	
+	
+	
+	
+CREATE TABLE sailor
+(
+    sid integer NOT NULL,
+    sname text,
+    rating integer,
+    CONSTRAINT sailor_pk PRIMARY KEY (sid)
+);
+
+
+
+CREATE TABLE boat
+(
+    bid integer NOT NULL,
+    bname text,
+    color text,
+    CONSTRAINT boat_pk PRIMARY KEY (bid)
+);
+
+
+CREATE TABLE reserves
+(
+    sid integer,
+    bid integer,
+    day text ,
+    CONSTRAINT boat_bid_fk FOREIGN KEY (bid)
+        REFERENCES boat (bid) ,
+    CONSTRAINT sailor_sid_fk FOREIGN KEY (sid)
+        REFERENCES sailor (sid) 
+);
+
+
+
+

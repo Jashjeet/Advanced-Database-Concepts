@@ -1,0 +1,184 @@
+CREATE DATABASE assignment1;
+	
+	
+	
+	
+CREATE TABLE sailor
+(
+    sid integer NOT NULL,
+    sname text,
+    rating integer,
+    CONSTRAINT sailor_pk PRIMARY KEY (sid)
+);
+
+
+
+CREATE TABLE boat
+(
+    bid integer NOT NULL,
+    bname text,
+    color text,
+    CONSTRAINT boat_pk PRIMARY KEY (bid)
+);
+
+
+CREATE TABLE reserves
+(
+    sid integer,
+    bid integer,
+    day text ,
+    CONSTRAINT boat_bid_fk FOREIGN KEY (bid)
+        REFERENCES boat (bid) ,
+    CONSTRAINT sailor_sid_fk FOREIGN KEY (sid)
+        REFERENCES sailor (sid) 
+);
+
+
+INSERT INTO sailor VALUES(22,   'Dustin',       7)
+, (29,   'Brutus',       1)
+, (31,   'Lubber',       8)
+, (32,   'Andy',         8)
+, (58,   'Rusty',        10)
+, (64,   'Horatio',      7)
+, (71,   'Zorba',        10)
+, (75,   'David',        8)
+, (74,   'Horatio',      9)
+, (85,   'Art',          3)
+, (95,   'Bob',          3);
+
+INSERT INTO boat VALUES(101,	'Interlake',	'blue')
+,(102,	'Sunset',	'red')
+,(103,	'Clipper',	'green')
+,(104,	'Marine',	'red')
+,(105,    'Indianapolis',     'blue');
+
+
+INSERT INTO reserves VALUES(22,	101,	'Monday')
+,(22,	102,	'Tuesday')
+,(22,	103,	'Wednesday')
+,(22,	105,	'Wednesday')
+,(31,	102,	'Thursday')
+,(31,	103,	'Friday')
+,(31, 104,	'Saturday')
+,(64,	101,	'Sunday')
+,(64,	102,	'Monday')
+,(74,	102,	'Saturday');
+
+
+
+
+--Error, violates referential integrity
+delete from sailor s where s.sid=74;
+--Successful, first delete from child table, and then from parent table
+delete from reserves r where r.sid=74;
+delete from sailor s where s.sid=74;
+
+--Error, violates unique constraint
+insert into boat values (101,	'Sample',	'white');
+--Successful, after changing the primary key value in insertion
+insert into boat values (108,	'Sample',	'white');
+
+--Error, violates foreign key constraint
+INSERT INTO reserves VALUES(25,	102,	'Monday');
+--Successful, after inserting into parent table (sailor) first, we can insert into child table (reserves)
+insert into sailor values (25,	'New',	100);
+INSERT INTO reserves VALUES(25,	102,	'Monday');
+
+--Error, violates foreign key constraint
+INSERT INTO reserves VALUES(25,	110,	'Monday');
+--Successful, after inserting into parent table (boat) first, we can insert into child table (reserves)
+insert into boat values (110,	'New Boat',	'Yellow');
+INSERT INTO reserves VALUES(25,	110,	'Monday');
+
+-Error, violates referential integrity (foreign key to parent table sailor)
+INSERT INTO reserves VALUES(44,	103,	'Monday');
+--Successful, after dropping the foreign key
+alter table reserves drop constraint sailor_sid_fk;
+INSERT INTO reserves VALUES(44,	103,	'Monday');
+
+--Error, insert or update on table "reserves" violates foreign key constraint "boat_bid_fk"
+INSERT INTO reserves VALUES(44,	115,	'Monday');
+--Successful, after dropping foreign key constraint "boat_bid_fk"
+alter table reserves drop constraint boat_bid_fk;
+INSERT INTO reserves VALUES(44,	115,	'Monday');
+
+--Error, duplicate key value violates unique constraint "sailor_pk"
+insert into sailor values (22,	'Jashjeet',	100);
+--Successful, after dropping primary key, duplicate insertion of sid is possible
+alter table sailor drop constraint sailor_pk;
+insert into sailor values (22,	'Jashjeet',	100);
+
+
+
+
+1.
+select s.sid,s.rating from sailor s;
+
+
+2.
+select * from sailor s
+where (s.rating>=2 and s.rating<8) or 
+(s.rating>10 and s.rating<=11);
+
+3.
+select distinct b.* 
+from sailor s, reserves r, boat b
+where s.sid=r.sid and r.bid=b.bid and 
+b.color<>'red' and s.rating>7;
+
+
+4.
+select b.bid,b.bname from boat b where b.bid in
+(select distinct r.bid
+from reserves r 
+where r.day in ('Saturday','Sunday'))
+and b.bid not in
+(select distinct r.bid
+from reserves r 
+where r.day in ('Tuesday'));
+
+
+5.
+select distinct r.sid from reserves r, boat b
+where r.bid=b.bid and b.color = 'red'
+and r.sid in
+(select r.sid from reserves r, boat b
+where r.bid=b.bid and b.color = 'green');
+
+
+6.
+select distinct s.sid, s.sname from reserves r1, reserves r2, sailor s
+where r1.sid=r2.sid and r1.bid<>r2.bid and r1.sid=s.sid;
+
+
+7.
+select distinct r1.sid,r2.sid from reserves r1, reserves r2
+where r1.sid<>r2.sid and r1.bid=r2.bid;
+
+
+8.
+select distinct s.sid from sailor s
+where s.sid not in
+(select r.sid from reserves r
+where r.day in ('Monday','Tuesday'));
+
+
+9.
+select r.sid,b.bid from reserves r, sailor s, boat b
+where s.sid=r.sid and b.bid=r.bid
+and s.rating>6 and b.color<>'red';
+
+
+10.
+select b.bid from boat b
+where b.bid not in
+(select r1.bid from reserves r1, reserves r2
+where r1.bid=r2.bid and r1.sid<>r2.sid);
+
+
+11.
+select s.sid from sailor s
+where s.sid not in 
+(select r1.sid from reserves r1, reserves r2, reserves r3
+where r1.sid=r2.sid and r1.sid=r3.sid
+and r1.bid<>r2.bid and r1.bid<>r3.bid and r2.bid<>r3.bid);
