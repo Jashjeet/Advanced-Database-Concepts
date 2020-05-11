@@ -1,0 +1,399 @@
+postgres=# \i C:/Users/jashj/OneDrive/'Semester 2'/'Advanced Database Concepts'/'Assignment 8'/'jsmadan_Assignment_8.sql'
+CREATE DATABASE
+You are now connected to database "assignment8jashjeet" as user "postgres".
+Question 1
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:15: NOTICE:  table "tree" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 9
+CREATE TABLE
+CREATE FUNCTION
+CREATE FUNCTION
+ ancestor_descendant
+---------------------
+
+(1 row)
+
+
+SELECT 38
+CREATE FUNCTION
+CREATE VIEW
+ v1 | v2 | distance
+----+----+----------
+  1 |  2 |        1
+  1 |  3 |        1
+  1 |  4 |        1
+  2 |  1 |        1
+  2 |  5 |        1
+  2 |  6 |        1
+  3 |  1 |        1
+  3 |  7 |        1
+  4 |  1 |        1
+  5 |  2 |        1
+  5 |  8 |        1
+  6 |  2 |        1
+  7 |  3 |        1
+  7 |  9 |        1
+  8 |  5 |        1
+  9 |  7 |        1
+  9 | 10 |        1
+ 10 |  9 |        1
+  1 |  5 |        2
+  1 |  6 |        2
+  1 |  7 |        2
+  2 |  3 |        2
+  2 |  4 |        2
+  2 |  8 |        2
+  3 |  2 |        2
+  3 |  4 |        2
+  3 |  9 |        2
+  4 |  2 |        2
+  4 |  3 |        2
+  5 |  1 |        2
+  5 |  6 |        2
+  6 |  1 |        2
+  6 |  5 |        2
+  7 |  1 |        2
+  7 | 10 |        2
+  8 |  2 |        2
+  9 |  3 |        2
+ 10 |  7 |        2
+  1 |  8 |        3
+  1 |  9 |        3
+  2 |  7 |        3
+  3 |  5 |        3
+  3 |  6 |        3
+  3 | 10 |        3
+  4 |  5 |        3
+  4 |  6 |        3
+  4 |  7 |        3
+  5 |  3 |        3
+  5 |  4 |        3
+  6 |  3 |        3
+  6 |  4 |        3
+  6 |  8 |        3
+  7 |  2 |        3
+  7 |  4 |        3
+  8 |  1 |        3
+  8 |  6 |        3
+  9 |  1 |        3
+ 10 |  3 |        3
+  1 | 10 |        4
+  2 |  9 |        4
+  3 |  8 |        4
+  4 |  8 |        4
+  4 |  9 |        4
+  5 |  7 |        4
+  6 |  7 |        4
+  7 |  5 |        4
+  7 |  6 |        4
+  8 |  3 |        4
+  8 |  4 |        4
+  9 |  2 |        4
+  9 |  4 |        4
+ 10 |  1 |        4
+  2 | 10 |        5
+  4 | 10 |        5
+  5 |  9 |        5
+  6 |  9 |        5
+  7 |  8 |        5
+  8 |  7 |        5
+  9 |  5 |        5
+  9 |  6 |        5
+ 10 |  2 |        5
+ 10 |  4 |        5
+  5 | 10 |        6
+  6 | 10 |        6
+  8 |  9 |        6
+  9 |  8 |        6
+ 10 |  5 |        6
+ 10 |  6 |        6
+  8 | 10 |        7
+ 10 |  8 |        7
+(90 rows)
+
+
+DROP VIEW
+DROP TABLE
+DROP FUNCTION
+Question 2
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:114: NOTICE:  table "graph" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 9
+CREATE TABLE
+ source | target | distance
+--------+--------+----------
+(0 rows)
+
+
+CREATE FUNCTION
+CREATE FUNCTION
+ tc
+----
+
+(1 row)
+
+
+ source | target | distance
+--------+--------+----------
+      1 |      2 |        0
+      1 |      3 |        0
+      1 |      4 |        0
+      3 |      4 |        0
+      2 |      5 |        0
+      3 |      5 |        0
+      5 |      4 |        0
+      3 |      6 |        0
+      4 |      6 |        0
+      3 |      4 |        1
+      1 |      6 |        1
+      1 |      4 |        1
+      1 |      5 |        1
+      5 |      6 |        1
+      2 |      4 |        1
+      3 |      6 |        1
+      2 |      6 |        2
+      1 |      6 |        2
+      1 |      4 |        2
+      3 |      6 |        2
+      1 |      6 |        3
+(21 rows)
+
+
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:159: NOTICE:  table "result" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+ index | vertex
+-------+--------
+(0 rows)
+
+
+CREATE FUNCTION
+ index | vertex
+-------+--------
+     1 |      1
+     2 |      2
+     3 |      3
+     4 |      5
+     5 |      4
+     6 |      6
+(6 rows)
+
+
+DROP FUNCTION
+DROP TABLE
+Question 3
+CREATE TABLE
+DELETE 0
+INSERT 0 7
+CREATE TABLE
+DELETE 0
+INSERT 0 5
+ pid | sid | quantity
+-----+-----+----------
+   1 |   2 |        4
+   1 |   3 |        1
+   3 |   4 |        1
+   3 |   5 |        2
+   3 |   6 |        3
+   6 |   7 |        2
+   6 |   8 |        3
+(7 rows)
+
+
+ pid | weight
+-----+--------
+   2 |      5
+   4 |     50
+   5 |      3
+   7 |      6
+   8 |     10
+(5 rows)
+
+
+CREATE TABLE
+CREATE FUNCTION
+CREATE FUNCTION
+ pid | aggregatedweight
+-----+------------------
+   1 |              202
+   2 |                5
+   3 |              182
+   4 |               50
+   5 |                3
+   6 |               42
+   7 |                6
+   8 |               10
+(8 rows)
+
+
+DROP TABLE
+DROP FUNCTION
+Question 4
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:292: NOTICE:  table "documents" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:304: NOTICE:  view "unique_words" does not exist, skipping
+DROP VIEW
+CREATE VIEW
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:311: NOTICE:  table "powerset_t" does not exist, skipping
+DROP TABLE
+SELECT 128
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:324: NOTICE:  function frequentsets() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:352: NOTICE:  table "result" does not exist, skipping
+ frequentsets
+--------------
+ {}
+ {D}
+ {G}
+ {C}
+ {B}
+ {A}
+ {E}
+ {F}
+ {D,G}
+ {C,D}
+ {B,D}
+ {A,D}
+ {A,G}
+ {B,C}
+ {A,C}
+ {A,B}
+ {A,E}
+ {E,F}
+ {A,D,G}
+ {B,C,D}
+ {A,B,D}
+ {A,B,C}
+(22 rows)
+
+
+ frequentsets
+--------------
+ {}
+ {D}
+ {C}
+ {B}
+ {A}
+ {E}
+ {B,D}
+ {A,D}
+ {B,C}
+ {A,C}
+ {A,B}
+ {A,B,C}
+(12 rows)
+
+
+ frequentsets
+--------------
+ {}
+ {D}
+ {C}
+ {B}
+ {A}
+ {B,C}
+ {A,B}
+(7 rows)
+
+
+ frequentsets
+--------------
+ {}
+ {B}
+ {A}
+ {A,B}
+(4 rows)
+
+
+ frequentsets
+--------------
+ {}
+ {B}
+ {A}
+(3 rows)
+
+
+ frequentsets
+--------------
+ {}
+ {A}
+(2 rows)
+
+
+ frequentsets
+--------------
+ {}
+(1 row)
+
+
+DROP VIEW
+DROP TABLE
+DROP FUNCTION
+Question 5
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:377: NOTICE:  table "points" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 20
+ pid | x | y
+-----+---+---
+   1 | 0 | 0
+   2 | 2 | 0
+   3 | 4 | 0
+   4 | 6 | 0
+   5 | 0 | 2
+   6 | 2 | 2
+   7 | 4 | 2
+   8 | 6 | 2
+   9 | 0 | 4
+  10 | 2 | 4
+  11 | 4 | 4
+  12 | 6 | 4
+  13 | 0 | 6
+  14 | 2 | 6
+  15 | 4 | 6
+  16 | 6 | 6
+  17 | 1 | 1
+  18 | 5 | 1
+  19 | 1 | 5
+  20 | 5 | 5
+(20 rows)
+
+
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:407: NOTICE:  function kmeans() does not exist, skipping
+DROP FUNCTION
+CREATE FUNCTION
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:450: NOTICE:  table "centroids" does not exist, skipping
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 8/jsmadan_Assignment_8.sql:450: NOTICE:  table "clusters" does not exist, skipping
+ cluster |         x          |         y
+---------+--------------------+--------------------
+       4 |             5.0004 |             1.0004
+       6 |  4.998600279944011 |  4.998600279944011
+      13 |             1.0004 |             5.0004
+       1 | 0.9997999599919984 | 0.9997999599919984
+(4 rows)
+
+
+DROP TABLE
+DROP FUNCTION
+You are now connected to database "postgres" as user "postgres".
+DROP DATABASE
+postgres=#
+postgres=#
+
+
+
+
+
+

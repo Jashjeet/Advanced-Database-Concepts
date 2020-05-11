@@ -1,0 +1,297 @@
+
+postgres=# \i C:/Users/jashj/OneDrive/'Semester 2'/'Advanced Database Concepts'/'Assignment 7'/'jsmadan_Assignment_7.sql'
+CREATE DATABASE
+You are now connected to database "assignment7jashjeet" as user "postgres".
+CREATE TABLE
+INSERT 0 14
+CREATE TABLE
+INSERT 0 5
+CREATE TABLE
+INSERT 0 5
+CREATE TABLE
+INSERT 0 8
+Question 1
+Part (a)
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 7/jsmadan_Assignment_7.sql:65: NOTICE:  table "r" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+INSERT 0 5
+ a | b | c
+---+---+----
+ 1 | 2 |  3
+ 4 | 5 |  6
+ 1 | 2 |  4
+ 5 | 6 |  7
+ 8 | 9 | 10
+(5 rows)
+
+
+CREATE FUNCTION
+CREATE FUNCTION
+ a | b
+---+---
+ 1 | 2
+ 4 | 5
+ 5 | 6
+ 8 | 9
+(4 rows)
+
+
+DROP TABLE
+DROP FUNCTION
+Question 1
+Part (b)
+CREATE TABLE
+CREATE TABLE
+INSERT 0 4
+INSERT 0 3
+CREATE FUNCTION
+CREATE FUNCTION
+ r_minus_s
+-----------
+ 1
+ 3
+(2 rows)
+
+
+DROP TABLE
+DROP FUNCTION
+Question 1
+Part (c)
+CREATE TABLE
+CREATE TABLE
+INSERT 0 13
+INSERT 0 4
+CREATE FUNCTION
+CREATE FUNCTION
+  a   |  b
+------+------
+ 1008 | 2011
+ 1009 | 2011
+ 1007 | 2011
+ 1010 | 2011
+(4 rows)
+
+
+DROP TABLE
+DROP FUNCTION
+Question 1
+Part (d)
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 4
+INSERT 0 3
+INSERT 0 2
+CREATE FUNCTION
+CREATE FUNCTION
+ a
+---
+ 4
+(1 row)
+
+
+DROP TABLE
+DROP FUNCTION
+Question 2
+CREATE TABLE
+INSERT 0 37
+CREATE FUNCTION
+CREATE FUNCTION
+                                     json_obj
+----------------------------------------------------------------------------------
+ {"a": 1009, "array_agg": [2001, 2002, 2011, 2012, 2013], "cardinality": 5}
+ {"a": 1017, "array_agg": [2001, 2002, 2003, 2008, 2012], "cardinality": 5}
+ {"a": 1007, "array_agg": [2009, 2010, 2011, 2012, 2013], "cardinality": 5}
+ {"a": 1013, "array_agg": [2001, 2011, 2012], "cardinality": 3}
+ {"a": 1011, "array_agg": [2002, 2011, 2012], "cardinality": 3}
+ {"a": 1008, "array_agg": [2007, 2011, 2012, 2013], "cardinality": 4}
+ {"a": 1012, "array_agg": [2011, 2012], "cardinality": 2}
+ {"a": 1014, "array_agg": [2008, 2011, 2012], "cardinality": 3}
+ {"a": 1010, "array_agg": [2001, 2002, 2003, 2011, 2012, 2013], "cardinality": 6}
+(9 rows)
+
+
+DROP FUNCTION
+DROP TABLE
+Question 3
+Part (a)
+CREATE TABLE
+CREATE TABLE
+INSERT 0 4
+INSERT 0 5
+CREATE VIEW
+ k |        row
+---+-------------------
+ a | ("{1,2}","{1,3}")
+ b | ({1},{})
+ c | ({3},{2})
+ d | ({},"{1,4}")
+(4 rows)
+
+
+Part (b)
+ k | unnest
+---+--------
+ a |      1
+ a |      2
+ c |      3
+(3 rows)
+
+
+Part (c)
+ rk | sk
+----+----
+ b  | a
+ b  | d
+ c  | a
+(3 rows)
+
+
+DROP VIEW
+DROP TABLE
+Question 4
+CREATE TABLE
+CREATE TABLE
+INSERT 0 5
+INSERT 0 5
+ a
+---
+ 1
+ 2
+ 3
+ 4
+ 5
+(5 rows)
+
+
+ b
+---
+ 4
+ 5
+ 6
+ 7
+ 8
+(5 rows)
+
+
+CREATE VIEW
+ k |    row
+---+-----------
+ 1 | ({1},{})
+ 2 | ({2},{})
+ 3 | ({3},{})
+ 4 | ({4},{4})
+ 5 | ({5},{5})
+ 6 | ({},{6})
+ 7 | ({},{7})
+ 8 | ({},{8})
+(8 rows)
+
+
+Part (a)
+ a
+---
+ 5
+ 4
+(2 rows)
+
+
+ k
+---
+ 4
+ 5
+(2 rows)
+
+
+Part (b)
+ a
+---
+ 2
+ 6
+ 1
+ 3
+ 8
+ 7
+(6 rows)
+
+
+ k
+---
+ 1
+ 2
+ 3
+ 6
+ 7
+ 8
+(6 rows)
+
+
+DROP VIEW
+DROP TABLE
+Question 5
+Part (a)
+CREATE TYPE
+CREATE TYPE
+CREATE TABLE
+INSERT 0 5
+ cno  |                             gradeinfo
+------+-------------------------------------------------------------------
+ c200 | {"(A,\"{(s100)}\")","(B,\"{(s101),(s102)}\")"}
+ c201 | {"(A,\"{(s101),(s103)}\")","(B,\"{(s100)}\")","(D,\"{(s104)}\")"}
+ c202 | {"(A,\"{(s100),(s101),(s102)}\")"}
+ c301 | {"(B,\"{(s102)}\")","(C,\"{(s101)}\")"}
+ c302 | {"(A,\"{(s101),(s102)}\")"}
+(5 rows)
+
+
+Part (b)
+CREATE TYPE
+CREATE TYPE
+SELECT 5
+ sid  |                                gradeinfo
+------+--------------------------------------------------------------------------
+ s100 | {"(A,\"{(c200),(c202)}\")","(B,\"{(c201)}\")"}
+ s101 | {"(A,\"{(c201),(c202),(c302)}\")","(B,\"{(c200)}\")","(C,\"{(c301)}\")"}
+ s102 | {"(A,\"{(c202),(c302)}\")","(B,\"{(c200),(c301)}\")"}
+ s103 | {"(A,\"{(c201)}\")"}
+ s104 | {"(D,\"{(c201)}\")"}
+(5 rows)
+
+
+Part (c)
+SELECT 5
+                                                                                         studentinfo                    
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"cno": "c200", "gradeInfo": [{"grade": "A", "students": [{"sid": "s100"}]}, {"grade": "B", "students": [{"sid": "s101"}, {"sid": "s102"}]}]}
+ {"cno": "c201", "gradeInfo": [{"grade": "A", "students": [{"sid": "s101"}, {"sid": "s103"}]}, {"grade": "B", "students": [{"sid": "s100"}]}, {"grade": "D", "students": [{"sid": "s104"}]}]}
+ {"cno": "c202", "gradeInfo": [{"grade": "A", "students": [{"sid": "s100"}, {"sid": "s101"}, {"sid": "s102"}]}]}
+ {"cno": "c301", "gradeInfo": [{"grade": "B", "students": [{"sid": "s102"}]}, {"grade": "C", "students": [{"sid": "s101"}]}]}
+ {"cno": "c302", "gradeInfo": [{"grade": "A", "students": [{"sid": "s101"}, {"sid": "s102"}]}]}
+(5 rows)
+
+
+Part (d)
+SELECT 5
+                                                                                                          studentinfo   
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"sid": "s100", "gradeInfo": [{"grade": "A", "courses": [{"courses": "c200"}, {"courses": "c202"}]}, {"grade": "B", "courses": [{"courses": "c201"}]}]}
+ {"sid": "s101", "gradeInfo": [{"grade": "A", "courses": [{"courses": "c202"}, {"courses": "c201"}, {"courses": "c302"}]}, {"grade": "B", "courses": [{"courses": "c200"}]}, {"grade": "C", "courses": [{"courses": "c301"}]}]}
+ {"sid": "s102", "gradeInfo": [{"grade": "A", "courses": [{"courses": "c302"}, {"courses": "c202"}]}, {"grade": "B", "courses": [{"courses": "c301"}, {"courses": "c200"}]}]}
+ {"sid": "s103", "gradeInfo": [{"grade": "A", "courses": [{"courses": "c201"}]}]}
+ {"sid": "s104", "gradeInfo": [{"grade": "D", "courses": [{"courses": "c201"}]}]}
+(5 rows)
+
+
+Part (e)
+                                                                                                                         enrollinfo                                                                                                             
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ {"sid": "s100", "sname": "Eric", "deptInfo": [{"dept": "CS", "courseInfo": [{"cno": "c200", "cname": "PL"}, {"cno": "c202", "cname": "Dbs"}]}, {"dept": "Math", "courseInfo": [{"cno": "c201", "cname": "Calculus"}]}]}
+ {"sid": "s103", "sname": "Dinska", "deptInfo": [{"dept": "Math", "courseInfo": [{"cno": "c201", "cname": "Calculus"}]}]}
+ {"sid": "s102", "sname": "Chris", "deptInfo": [{"dept": "CS", "courseInfo": [{"cno": "c200", "cname": "PL"}, {"cno": "c202", "cname": "Dbs"}, {"cno": "c301", "cname": "AI"}]}, {"dept": "Philosophy", "courseInfo": [{"cno": "c302", "cname": "Logic"}]}]}
+(3 rows)
+
+
+You are now connected to database "postgres" as user "postgres".
+DROP DATABASE
+postgres=#

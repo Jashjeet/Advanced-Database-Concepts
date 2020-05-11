@@ -1,0 +1,891 @@
+postgres=# \i C:/Users/jashj/OneDrive/'Semester 2'/'Advanced Database Concepts'/'Assignment 6'/'jsmadan_Assignment_6.sql'
+CREATE DATABASE
+You are now connected to database "assignment6jashjeet" as user "postgres".
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+INSERT 0 1
+Part 2
+CREATE FUNCTION
+CREATE FUNCTION
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 6/jsmadan_Assignment_6.sql:217: NOTICE:  table "ra" does not exist, skipping
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 6/jsmadan_Assignment_6.sql:217: NOTICE:  table "rb" does not exist, skipping
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 6/jsmadan_Assignment_6.sql:217: NOTICE:  table "r" does not exist, skipping
+ makerandomr
+-------------
+
+(1 row)
+
+
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 6/jsmadan_Assignment_6.sql:218: NOTICE:  table "sb" does not exist, skipping
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 6/jsmadan_Assignment_6.sql:218: NOTICE:  table "s" does not exist, skipping
+ makerandoms
+-------------
+
+(1 row)
+
+
+Question 7
+Non Optimized query
+Query 3
+                                                                 QUERY PLAN                                             
+--------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=527967.08..527969.08 rows=200 width=4) (actual time=849.893..849.925 rows=500 loops=1)
+   Group Key: r1.a
+   ->  Merge Join  (cost=66429.86..462225.15 rows=26296772 width=4) (actual time=82.581..493.615 rows=3996096 loops=1)
+         Merge Cond: (r3.a = r2.b)
+         ->  Sort  (cost=823.62..849.04 rows=10170 width=4) (actual time=2.449..3.494 rows=10000 loops=1)
+               Sort Key: r3.a
+               Sort Method: quicksort  Memory: 853kB
+               ->  Seq Scan on r r3  (cost=0.00..146.70 rows=10170 width=4) (actual time=0.016..0.798 rows=10000 loops=1)
+         ->  Materialize  (cost=65606.24..68191.96 rows=517144 width=8) (actual time=80.126..207.948 rows=3996080 loops=1)
+               ->  Sort  (cost=65606.24..66899.10 rows=517144 width=8) (actual time=80.123..93.596 rows=199987 loops=1)
+                     Sort Key: r2.b
+                     Sort Method: external merge  Disk: 3544kB
+                     ->  Merge Join  (cost=1647.23..9455.24 rows=517144 width=8) (actual time=3.674..34.994 rows=199987 loops=1)
+                           Merge Cond: (r1.b = r2.a)
+                           ->  Sort  (cost=823.62..849.04 rows=10170 width=8) (actual time=1.835..2.885 rows=10000 loops=1)
+                                 Sort Key: r1.b
+                                 Sort Method: quicksort  Memory: 853kB
+                                 ->  Seq Scan on r r1  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.013..0.477 rows=10000 loops=1)
+                           ->  Sort  (cost=823.62..849.04 rows=10170 width=8) (actual time=1.835..8.721 rows=199960 loops=1)
+                                 Sort Key: r2.a
+                                 Sort Method: quicksort  Memory: 853kB
+                                 ->  Seq Scan on r r2  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.026..0.511 rows=10000 loops=1)
+ Planning Time: 0.474 ms
+ Execution Time: 851.625 ms
+(24 rows)
+
+
+Optimized query
+Query 4
+                                                                    QUERY PLAN                                          
+--------------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=583.90..585.90 rows=200 width=4) (actual time=8.423..8.455 rows=500 loops=1)
+   Group Key: r1.a
+   ->  Hash Join  (cost=384.51..558.48 rows=10170 width=4) (actual time=5.196..7.225 rows=10000 loops=1)
+         Hash Cond: (r1.b = r2.a)
+         ->  Seq Scan on r r1  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.014..0.533 rows=10000 loops=1)
+         ->  Hash  (cost=382.01..382.01 rows=200 width=4) (actual time=5.174..5.174 rows=500 loops=1)
+               Buckets: 1024  Batches: 1  Memory Usage: 26kB
+               ->  HashAggregate  (cost=378.01..380.01 rows=200 width=4) (actual time=5.093..5.126 rows=500 loops=1)
+                     Group Key: r2.a
+                     ->  Hash Join  (cost=178.63..352.59 rows=10170 width=4) (actual time=2.007..3.905 rows=10000 loops=1)
+                           Hash Cond: (r2.b = r3.a)
+                           ->  Seq Scan on r r2  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.007..0.511 rows=10000 loops=1)
+                           ->  Hash  (cost=176.13..176.13 rows=200 width=4) (actual time=1.991..1.991 rows=500 loops=1)
+                                 Buckets: 1024  Batches: 1  Memory Usage: 26kB
+                                 ->  HashAggregate  (cost=172.13..174.13 rows=200 width=4) (actual time=1.858..1.908 rows=500 loops=1)
+                                       Group Key: r3.a
+                                       ->  Seq Scan on r r3  (cost=0.00..146.70 rows=10170 width=4) (actual time=0.006..0.548 rows=10000 loops=1)
+ Planning Time: 0.142 ms
+ Execution Time: 8.561 ms
+(19 rows)
+
+
+Question 8
+Non Optimized query
+Query 5
+                                                     QUERY PLAN
+---------------------------------------------------------------------------------------------------------------------
+ Hash Anti Join  (cost=277.56..364.22 rows=1275 width=4) (actual time=1.428..1.496 rows=500 loops=1)
+   Hash Cond: (ra.a = r.a)
+   ->  Seq Scan on ra  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.015..0.042 rows=500 loops=1)
+   ->  Hash  (cost=214.00..214.00 rows=5085 width=4) (actual time=1.385..1.385 rows=0 loops=1)
+         Buckets: 8192  Batches: 1  Memory Usage: 64kB
+         ->  Seq Scan on r  (cost=41.88..214.00 rows=5085 width=4) (actual time=1.385..1.385 rows=0 loops=1)
+               Filter: (NOT (hashed SubPlan 1))
+               Rows Removed by Filter: 10000
+               SubPlan 1
+                 ->  Seq Scan on s  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.011..0.038 rows=500 loops=1)
+ Planning Time: 0.771 ms
+ Execution Time: 1.526 ms
+(12 rows)
+
+
+Optimized query
+Query 6
+                                                                                 QUERY PLAN                             
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ HashSetOp Except  (cost=0.00..6652.02 rows=200 width=8) (actual time=10.089..10.113 rows=500 loops=1)
+   ->  Append  (cost=0.00..6613.23 rows=15517 width=8) (actual time=0.014..10.006 rows=500 loops=1)
+         ->  Subquery Scan on "*SELECT* 1"  (cost=0.00..61.00 rows=2550 width=8) (actual time=0.014..0.065 rows=500 loops=1)
+               ->  Seq Scan on ra  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.013..0.033 rows=500 loops=1)
+         ->  Subquery Scan on "*SELECT* 2"  (cost=6145.38..6474.64 rows=12967 width=8) (actual time=9.924..9.924 rows=0 loops=1)
+               ->  Merge Join  (cost=6145.38..6344.97 rows=12967 width=4) (actual time=9.923..9.923 rows=0 loops=1)
+                     Merge Cond: (q1.a = ra_1.a)
+                     ->  Sort  (cost=5965.60..5968.14 rows=1017 width=4) (actual time=9.923..9.923 rows=0 loops=1)
+                           Sort Key: q1.a
+                           Sort Method: quicksort  Memory: 25kB
+                           ->  Subquery Scan on q1  (cost=0.00..5914.80 rows=1017 width=4) (actual time=9.919..9.919 rows=0 loops=1)
+                                 ->  HashSetOp Except  (cost=0.00..5904.63 rows=1017 width=12) (actual time=9.919..9.919 rows=0 loops=1)
+                                       ->  Append  (cost=0.00..5205.44 rows=139838 width=12) (actual time=0.009..6.118 rows=20000 loops=1)
+                                             ->  Subquery Scan on "*SELECT* 1_1"  (cost=0.00..248.40 rows=10170 width=12) (actual time=0.009..1.367 rows=10000 loops=1)
+                                                   ->  Seq Scan on r r1  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.008..0.538 rows=10000 loops=1)
+                                             ->  Subquery Scan on "*SELECT* 2_1"  (cost=1003.40..4257.85 rows=129668 width=12) (actual time=2.082..4.065 rows=10000 loops=1)
+                                                   ->  Merge Join  (cost=1003.40..2961.17 rows=129668 width=8) (actual time=2.081..3.496 rows=10000 loops=1)
+                                                         Merge Cond: (s1.b = r2.b)
+                                                         ->  Sort  (cost=179.78..186.16 rows=2550 width=4) (actual time=0.096..0.129 rows=500 loops=1)
+                                                               Sort Key: s1.b
+                                                               Sort Method: quicksort  Memory: 48kB
+                                                               ->  Seq Scan on s s1  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.015..0.034 rows=500 loops=1)
+                                                         ->  Sort  (cost=823.62..849.04 rows=10170 width=8) (actual time=1.981..2.494 rows=10000 loops=1)
+                                                               Sort Key: r2.b
+                                                               Sort Method: quicksort  Memory: 853kB
+                                                               ->  Seq Scan on r r2  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.009..0.527 rows=10000 loops=1)
+                     ->  Sort  (cost=179.78..186.16 rows=2550 width=4) (never executed)
+                           Sort Key: ra_1.a
+                           ->  Seq Scan on ra ra_1  (cost=0.00..35.50 rows=2550 width=4) (never executed)
+ Planning Time: 0.155 ms
+ Execution Time: 10.479 ms
+(31 rows)
+
+
+Question 9
+Non Optimized query
+Query 7
+                                                    QUERY PLAN
+------------------------------------------------------------------------------------------------------------------
+ Nested Loop Anti Join  (cost=0.00..280286390.52 rows=1275 width=4) (actual time=271.094..271.094 rows=0 loops=1)
+   Join Filter: (NOT (SubPlan 1))
+   Rows Removed by Join Filter: 27
+   ->  Seq Scan on ra  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.015..0.057 rows=500 loops=1)
+   ->  Materialize  (cost=0.00..48.25 rows=2550 width=4) (actual time=0.000..0.000 rows=1 loops=500)
+         ->  Seq Scan on s  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.010..0.010 rows=3 loops=1)
+   SubPlan 1
+     ->  Seq Scan on r  (cost=0.00..172.13 rows=51 width=4) (actual time=0.028..0.508 rows=20 loops=527)
+           Filter: (a = ra.a)
+           Rows Removed by Filter: 9758
+ Planning Time: 0.117 ms
+ Execution Time: 271.112 ms
+(12 rows)
+
+
+Optimized query
+Query 8
+                                                                              QUERY PLAN                                
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ HashSetOp Except  (cost=0.00..284618.50 rows=200 width=8) (actual time=190.843..190.844 rows=0 loops=1)
+   ->  Append  (cost=0.00..284512.13 rows=42550 width=8) (actual time=0.017..171.713 rows=240500 loops=1)
+         ->  Subquery Scan on "*SELECT* 1"  (cost=0.00..61.00 rows=2550 width=8) (actual time=0.017..0.071 rows=500 loops=1)
+               ->  Seq Scan on ra  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.015..0.039 rows=500 loops=1)
+         ->  Subquery Scan on "*SELECT* 2"  (cost=0.00..284238.38 rows=40000 width=8) (actual time=109.770..163.607 rows=240000 loops=1)
+               ->  Subquery Scan on q  (cost=0.00..283838.38 rows=40000 width=4) (actual time=109.769..150.733 rows=240000 loops=1)
+                     ->  HashSetOp Except  (cost=0.00..283438.38 rows=40000 width=12) (actual time=109.769..137.491 rows=240000 loops=1)
+                           ->  Append  (cost=0.00..242659.54 rows=8155767 width=12) (actual time=0.020..51.369 rows=260000 loops=1)
+                                 ->  Subquery Scan on "*SELECT* 1_1"  (cost=0.00..146383.63 rows=6502500 width=12) (actual time=0.020..35.659 rows=250000 loops=1)
+                                       ->  Nested Loop  (cost=0.00..81358.63 rows=6502500 width=8) (actual time=0.019..22.947 rows=250000 loops=1)
+                                             ->  Seq Scan on s  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.010..0.064 rows=500 loops=1)
+                                             ->  Materialize  (cost=0.00..48.25 rows=2550 width=4) (actual time=0.000..0.014 rows=500 loops=500)
+                                                   ->  Seq Scan on ra ra_1  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.007..0.027 rows=500 loops=1)
+                                 ->  Subquery Scan on "*SELECT* 2_1"  (cost=14152.66..55497.08 rows=1653267 width=12) (actual time=5.394..7.197 rows=10000 loops=1)
+                                       ->  Merge Join  (cost=14152.66..38964.41 rows=1653267 width=8) (actual time=5.394..6.691 rows=10000 loops=1)
+                                             Merge Cond: (ra_2.a = r.a)
+                                             ->  Sort  (cost=179.78..186.16 rows=2550 width=4) (actual time=0.075..0.095 rows=500 loops=1)
+                                                   Sort Key: ra_2.a
+                                                   Sort Method: quicksort  Memory: 48kB
+                                                   ->  Seq Scan on ra ra_2  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.015..0.037 rows=500 loops=1)
+                                             ->  Sort  (cost=13972.88..14297.05 rows=129668 width=8) (actual time=5.317..5.726 rows=10000 loops=1)
+                                                   Sort Key: r.a
+                                                   Sort Method: quicksort  Memory: 853kB
+                                                   ->  Merge Join  (cost=1003.40..2961.17 rows=129668 width=8) (actual time=2.398..3.762 rows=10000 loops=1)
+                                                         Merge Cond: (s_1.b = r.b)
+                                                         ->  Sort  (cost=179.78..186.16 rows=2550 width=4) (actual time=0.091..0.119 rows=500 loops=1)
+                                                               Sort Key: s_1.b
+                                                               Sort Method: quicksort  Memory: 48kB
+                                                               ->  Seq Scan on s s_1  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.009..0.030 rows=500 loops=1)
+                                                         ->  Sort  (cost=823.62..849.04 rows=10170 width=8) (actual time=2.305..2.700 rows=10000 loops=1)
+                                                               Sort Key: r.b
+                                                               Sort Method: quicksort  Memory: 853kB
+                                                               ->  Seq Scan on r  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.011..0.700 rows=10000 loops=1)
+ Planning Time: 0.148 ms
+ Execution Time: 194.158 ms
+(35 rows)
+
+
+Question 10
+Query 9
+                                                                    QUERY PLAN                                          
+---------------------------------------------------------------------------------------------------------------------------------------------------
+ HashAggregate  (cost=1497.38..1499.39 rows=201 width=4) (actual time=15.766..15.805 rows=500 loops=1)
+   Group Key: r.a
+   ->  Append  (cost=1009.77..1496.87 rows=201 width=4) (actual time=2.392..15.614 rows=500 loops=1)
+         ->  Subquery Scan on r  (cost=1009.77..1089.06 rows=1 width=4) (actual time=2.391..12.184 rows=500 loops=1)
+               InitPlan 1 (returns $0)
+                 ->  Sort  (cost=179.78..186.16 rows=2550 width=4) (actual time=0.088..0.101 rows=500 loops=1)
+                       Sort Key: s.b
+                       Sort Method: quicksort  Memory: 48kB
+                       ->  Seq Scan on s  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.013..0.034 rows=500 loops=1)
+               ->  GroupAggregate  (cost=823.62..902.89 rows=1 width=36) (actual time=2.390..12.143 rows=500 loops=1)
+                     Group Key: r_1.a
+                     Filter: (array_agg(r_1.b ORDER BY 1::integer) <@ $0)
+                     ->  Sort  (cost=823.62..849.04 rows=10170 width=8) (actual time=2.224..3.086 rows=10000 loops=1)
+                           Sort Key: r_1.a
+                           Sort Method: quicksort  Memory: 853kB
+                           ->  Seq Scan on r r_1  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.011..0.568 rows=10000 loops=1)
+         ->  Result  (cost=0.00..406.80 rows=200 width=4) (actual time=3.406..3.406 rows=0 loops=1)
+               ->  HashSetOp Except  (cost=0.00..404.80 rows=200 width=8) (actual time=3.405..3.406 rows=0 loops=1)
+                     ->  Append  (cost=0.00..373.00 rows=12720 width=8) (actual time=0.020..2.192 rows=10500 loops=1)
+                           ->  Subquery Scan on "*SELECT* 2"  (cost=0.00..61.00 rows=2550 width=8) (actual time=0.019..0.075 rows=500 loops=1)
+                                 ->  Seq Scan on ra  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.019..0.041 rows=500 loops=1)
+                           ->  Subquery Scan on "*SELECT* 3"  (cost=0.00..248.40 rows=10170 width=8) (actual time=0.011..1.692 rows=10000 loops=1)
+                                 ->  Seq Scan on r r_2  (cost=0.00..146.70 rows=10170 width=4) (actual time=0.010..0.820 rows=10000 loops=1)
+ Planning Time: 0.138 ms
+ Execution Time: 16.008 ms
+(25 rows)
+
+
+Question 11
+Query 10
+                                                        QUERY PLAN                                                      
+---------------------------------------------------------------------------------------------------------------------------
+ Subquery Scan on r  (cost=1009.77..1089.06 rows=1 width=4) (actual time=6.200..6.200 rows=0 loops=1)
+   InitPlan 1 (returns $0)
+     ->  Sort  (cost=179.78..186.16 rows=2550 width=4) (actual time=0.083..0.095 rows=500 loops=1)
+           Sort Key: s.b
+           Sort Method: quicksort  Memory: 48kB
+           ->  Seq Scan on s  (cost=0.00..35.50 rows=2550 width=4) (actual time=0.010..0.030 rows=500 loops=1)
+   ->  GroupAggregate  (cost=823.62..902.89 rows=1 width=36) (actual time=6.199..6.199 rows=0 loops=1)
+         Group Key: r_1.a
+         Filter: ($0 <@ array_agg(r_1.b ORDER BY 1::integer))
+         Rows Removed by Filter: 500
+         ->  Sort  (cost=823.62..849.04 rows=10170 width=8) (actual time=1.918..2.667 rows=10000 loops=1)
+               Sort Key: r_1.a
+               Sort Method: quicksort  Memory: 853kB
+               ->  Seq Scan on r r_1  (cost=0.00..146.70 rows=10170 width=8) (actual time=0.012..0.556 rows=10000 loops=1)
+ Planning Time: 0.084 ms
+ Execution Time: 6.360 ms
+(16 rows)
+
+
+Question 12 (a)
+CREATE FUNCTION
+Question 12 (b)
+CREATE FUNCTION
+Question 13
+CREATE VIEW
+ sid  |                        books
+------+-----------------------------------------------------
+ 1001 | {2002,2007,2009,2011,2013}
+ 1002 | {2001,2002,2007,2011,2012,2013}
+ 1003 | {2002,2007,2011,2012,2013}
+ 1004 | {2006,2007,2008,2011,2012,2013}
+ 1005 | {2007,2011,2012,2013}
+ 1006 | {2006,2007,2008,2011,2012,2013}
+ 1007 | {2001,2002,2003,2007,2008,2009,2010,2011,2012,2013}
+ 1008 | {2007,2011,2012,2013}
+ 1009 | {2001,2002,2011,2012,2013}
+ 1010 | {2001,2002,2003,2011,2012,2013}
+ 1011 | {2002,2011,2012}
+ 1012 | {2011,2012}
+ 1013 | {2001,2011,2012}
+ 1014 | {2008,2011,2012}
+ 1015 | {}
+ 1016 | {}
+ 1017 | {2001,2002,2003,2008,2012}
+ 1020 | {2012}
+(18 rows)
+
+
+Question 13 (a)
+CREATE VIEW
+ bookno |                                   students
+--------+------------------------------------------------------------------------------
+   2001 | {1002,1007,1009,1010,1013,1017}
+   2002 | {1001,1002,1003,1007,1009,1010,1011,1017}
+   2003 | {1007,1010,1017}
+   2004 | {}
+   2005 | {}
+   2006 | {1004,1006}
+   2007 | {1001,1002,1003,1004,1005,1006,1007,1008}
+   2008 | {1004,1006,1007,1014,1017}
+   2009 | {1001,1007}
+   2010 | {1007}
+   2011 | {1001,1002,1003,1004,1005,1006,1007,1008,1009,1010,1011,1012,1013,1014}
+   2012 | {1002,1003,1004,1005,1006,1007,1008,1009,1010,1011,1012,1013,1014,1017,1020}
+   2013 | {1001,1002,1003,1004,1005,1006,1007,1008,1009,1010}
+   3000 | {}
+(14 rows)
+
+
+Question 13 (b)
+CREATE VIEW
+ bookno |    citedbooks
+--------+------------------
+   2001 | {2002,2007}
+   2002 | {2003}
+   2003 | {2001,2002,2004}
+   2004 | {}
+   2005 | {}
+   2006 | {}
+   2007 | {}
+   2008 | {2011,2012}
+   2009 | {}
+   2010 | {}
+   2011 | {}
+   2012 | {2001,2005}
+   2013 | {}
+   3000 | {}
+(14 rows)
+
+
+Question 13 (c)
+CREATE VIEW
+ bookno | citingbooks
+--------+-------------
+   2001 | {2003,2012}
+   2002 | {2001,2003}
+   2003 | {2002}
+   2004 | {2003}
+   2005 | {2012}
+   2006 | {}
+   2007 | {2001}
+   2008 | {}
+   2009 | {}
+   2010 | {}
+   2011 | {2008}
+   2012 | {2008}
+   2013 | {}
+   3000 | {}
+(14 rows)
+
+
+Question 13 (d)
+CREATE VIEW
+    major     |               students
+--------------+--------------------------------------
+ Math         | {1001,1002,1003,1011}
+ Theater      | {1014}
+ Physics      | {1001,1007,1008}
+ Anthropology | {1017}
+ CS           | {1002,1004,1006,1007,1011,1012,1013}
+ Psychology   | {1013}
+ Biology      | {1009,1010}
+(7 rows)
+
+
+Question 13 (e)
+CREATE VIEW
+ sid  |     majors
+------+-----------------
+ 1001 | {Math,Physics}
+ 1002 | {CS,Math}
+ 1003 | {Math}
+ 1004 | {CS}
+ 1005 | {}
+ 1006 | {CS}
+ 1007 | {CS,Physics}
+ 1008 | {Physics}
+ 1009 | {Biology}
+ 1010 | {Biology}
+ 1011 | {CS,Math}
+ 1012 | {CS}
+ 1013 | {CS,Psychology}
+ 1014 | {Theater}
+ 1015 | {}
+ 1016 | {}
+ 1017 | {Anthropology}
+ 1020 | {}
+(18 rows)
+
+
+psql:C:/Users/jashj/OneDrive/Semester 2/Advanced Database Concepts/Assignment 6/jsmadan_Assignment_6.sql:452: ERROR:  syntax error at or near "qecho"
+LINE 1: qecho 'Question 14'
+        ^
+Question 14 (a)
+ bookno |  title
+--------+----------
+   2003 | Networks
+(1 row)
+
+
+Question 14 (b)
+ bookno |        title
+--------+---------------------
+   2004 | AI
+   2005 | DiscreteMathematics
+   3000 | MachineLearning
+(3 rows)
+
+
+Question 14 (c)
+ sid
+------
+ 1004
+ 1006
+ 1007
+ 1014
+(4 rows)
+
+
+Question 14 (d)
+ bookno
+--------
+   2001
+   2002
+   2003
+   2007
+   2008
+   2009
+   2011
+   2012
+   2013
+(9 rows)
+
+
+Question 14 (e)
+ bookno |        title
+--------+----------------------
+   2001 | Databases
+   2002 | OperatingSystems
+   2003 | Networks
+   2007 | ProgrammingLanguages
+   2008 | DataScience
+   2009 | Calculus
+   2011 | Anthropology
+   2012 | Geometry
+   2013 | RealAnalysis
+(9 rows)
+
+
+Question 14 (f)
+ sid  | bookno
+------+--------
+ 1001 |   2001
+ 1001 |   2002
+ 1001 |   2003
+ 1001 |   2004
+ 1001 |   2005
+ 1001 |   2006
+ 1001 |   2007
+ 1001 |   2008
+ 1001 |   2009
+ 1001 |   2010
+ 1001 |   2011
+ 1001 |   2012
+ 1001 |   2013
+ 1001 |   3000
+ 1002 |   2001
+ 1002 |   2002
+ 1002 |   2003
+ 1002 |   2004
+ 1002 |   2005
+ 1002 |   2006
+ 1002 |   2007
+ 1002 |   2008
+ 1002 |   2009
+ 1002 |   2010
+ 1002 |   2011
+ 1002 |   2012
+ 1002 |   2013
+ 1002 |   3000
+ 1003 |   2001
+ 1003 |   2002
+ 1003 |   2003
+ 1003 |   2004
+ 1003 |   2005
+ 1003 |   2006
+ 1003 |   2007
+ 1003 |   2008
+ 1003 |   2009
+ 1003 |   2010
+ 1003 |   2011
+ 1003 |   2012
+ 1003 |   2013
+ 1003 |   3000
+ 1004 |   2001
+ 1004 |   2002
+ 1004 |   2003
+ 1004 |   2004
+ 1004 |   2005
+ 1004 |   2006
+ 1004 |   2007
+ 1004 |   2008
+ 1004 |   2009
+ 1004 |   2010
+ 1004 |   2011
+ 1004 |   2012
+ 1004 |   2013
+ 1004 |   3000
+ 1005 |   2001
+ 1005 |   2002
+ 1005 |   2003
+ 1005 |   2004
+ 1005 |   2005
+ 1005 |   2006
+ 1005 |   2007
+ 1005 |   2008
+ 1005 |   2009
+ 1005 |   2010
+ 1005 |   2011
+ 1005 |   2012
+ 1005 |   2013
+ 1005 |   3000
+ 1006 |   2001
+ 1006 |   2002
+ 1006 |   2003
+ 1006 |   2004
+ 1006 |   2005
+ 1006 |   2006
+ 1006 |   2007
+ 1006 |   2008
+ 1006 |   2009
+ 1006 |   2010
+ 1006 |   2011
+ 1006 |   2012
+ 1006 |   2013
+ 1006 |   3000
+ 1007 |   2001
+ 1007 |   2002
+ 1007 |   2003
+ 1007 |   2004
+ 1007 |   2005
+ 1007 |   2006
+ 1007 |   2007
+ 1007 |   2008
+ 1007 |   2009
+ 1007 |   2010
+ 1007 |   2011
+ 1007 |   2012
+ 1007 |   2013
+ 1007 |   3000
+ 1008 |   2001
+ 1008 |   2002
+ 1008 |   2003
+ 1008 |   2004
+ 1008 |   2005
+ 1008 |   2006
+ 1008 |   2007
+ 1008 |   2008
+ 1008 |   2009
+ 1008 |   2010
+ 1008 |   2011
+ 1008 |   2012
+ 1008 |   2013
+ 1008 |   3000
+ 1009 |   2001
+ 1009 |   2002
+ 1009 |   2003
+ 1009 |   2004
+ 1009 |   2005
+ 1009 |   2006
+ 1009 |   2007
+ 1009 |   2008
+ 1009 |   2009
+ 1009 |   2010
+ 1009 |   2011
+ 1009 |   2012
+ 1009 |   2013
+ 1009 |   3000
+ 1010 |   2001
+ 1010 |   2002
+ 1010 |   2003
+ 1010 |   2004
+ 1010 |   2005
+ 1010 |   2006
+ 1010 |   2007
+ 1010 |   2008
+ 1010 |   2009
+ 1010 |   2010
+ 1010 |   2011
+ 1010 |   2012
+ 1010 |   2013
+ 1010 |   3000
+ 1011 |   2001
+ 1011 |   2002
+ 1011 |   2003
+ 1011 |   2004
+ 1011 |   2005
+ 1011 |   2006
+ 1011 |   2007
+ 1011 |   2008
+ 1011 |   2009
+ 1011 |   2010
+ 1011 |   2011
+ 1011 |   2012
+ 1011 |   2013
+ 1011 |   3000
+ 1012 |   2001
+ 1012 |   2002
+ 1012 |   2003
+ 1012 |   2004
+ 1012 |   2005
+ 1012 |   2006
+ 1012 |   2007
+ 1012 |   2008
+ 1012 |   2009
+ 1012 |   2010
+ 1012 |   2011
+ 1012 |   2012
+ 1012 |   2013
+ 1012 |   3000
+ 1013 |   2001
+ 1013 |   2002
+ 1013 |   2003
+ 1013 |   2004
+ 1013 |   2005
+ 1013 |   2006
+ 1013 |   2007
+ 1013 |   2008
+ 1013 |   2009
+ 1013 |   2010
+ 1013 |   2011
+ 1013 |   2012
+ 1013 |   2013
+ 1013 |   3000
+ 1014 |   2001
+ 1014 |   2002
+ 1014 |   2003
+ 1014 |   2004
+ 1014 |   2005
+ 1014 |   2006
+ 1014 |   2007
+ 1014 |   2008
+ 1014 |   2009
+ 1014 |   2010
+ 1014 |   2011
+ 1014 |   2012
+ 1014 |   2013
+ 1014 |   3000
+ 1017 |   2001
+ 1017 |   2002
+ 1017 |   2003
+ 1017 |   2004
+ 1017 |   2005
+ 1017 |   2006
+ 1017 |   2007
+ 1017 |   2008
+ 1017 |   2009
+ 1017 |   2010
+ 1017 |   2011
+ 1017 |   2012
+ 1017 |   2013
+ 1017 |   3000
+ 1020 |   2002
+ 1020 |   2003
+ 1020 |   2004
+ 1020 |   2006
+ 1020 |   2007
+ 1020 |   2008
+ 1020 |   2009
+ 1020 |   2010
+ 1020 |   2011
+ 1020 |   2012
+ 1020 |   2013
+ 1020 |   3000
+(222 rows)
+
+
+Question 14 (g)
+ bookno | bookno
+--------+--------
+   2001 |   2001
+   2002 |   2002
+   2003 |   2003
+   2004 |   2004
+   2005 |   2004
+   3000 |   2004
+   2004 |   2005
+   2005 |   2005
+   3000 |   2005
+   2006 |   2006
+   2007 |   2007
+   2008 |   2008
+   2009 |   2009
+   2010 |   2010
+   2011 |   2011
+   2012 |   2012
+   2013 |   2013
+   2004 |   3000
+   2005 |   3000
+   3000 |   3000
+(20 rows)
+
+
+Question 14 (h)
+ bookno | bookno
+--------+--------
+   2004 |   2004
+   2004 |   3000
+   2004 |   2005
+   3000 |   2004
+   3000 |   3000
+   3000 |   2005
+   2005 |   2004
+   2005 |   3000
+   2005 |   2005
+   2010 |   2010
+   2009 |   2009
+   2009 |   2006
+   2006 |   2009
+   2006 |   2006
+   2003 |   2003
+   2008 |   2008
+   2001 |   2001
+   2007 |   2007
+   2007 |   2002
+   2002 |   2007
+   2002 |   2002
+   2013 |   2013
+   2011 |   2011
+   2012 |   2012
+(24 rows)
+
+
+Question 14 (i)
+ sid
+------
+ 1007
+(1 row)
+
+
+Question 14 (j)
+ sid
+------
+ 1011
+ 1012
+ 1013
+ 1014
+ 1015
+ 1016
+ 1020
+(7 rows)
+
+
+You are now connected to database "postgres" as user "postgres".
